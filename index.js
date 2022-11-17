@@ -17,7 +17,7 @@ try {
     console.log('Default branch detected, renaming to latest')
     revision = 'latest';
   } else if ('tags' !== refType) {
-    console.log('Tag detected, adding -SNAPSHOT suffix')
+    console.log('Non-default branch detected, adding -SNAPSHOT suffix')
     revision = revision + '-SNAPSHOT';
   }
 
