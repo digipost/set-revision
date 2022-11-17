@@ -1,19 +1,15 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-const REF_REGEX = /refs\/(.+)\/(.+)/;
+const REF_REGEX = /refs\/(.+)\/(.+)/; // e.g. 'refs/heads/main' or 'refs/tags/123'
 const REF_TAGS = "tags"
-
-function findGitBranchAndRefType(ref) {
-  return ref.match(REF_REGEX);
-}
 
 try {
 
   const ref = github.context.ref;
   console.log(`Reference is ${ref}`);
 
-  const [branch, refType] = findGitBranchAndRefType(ref);
+  const [, refType, branch] = ref.match(REF_REGEX);
   console.log(`Branch is ${branch}, refType is ${refType}`);
 
   let revision = branch;
