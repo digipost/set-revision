@@ -9705,6 +9705,7 @@ try {
     revision = revision + '-SNAPSHOT';
   }
 
+  core.exportVariable('REVISION', revision)
   core.setOutput('revision', revision);
 
 } catch (error) {
