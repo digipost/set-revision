@@ -8,4 +8,4 @@ outputs:
     description: 'The value of the revision variable'
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'dist/index.js'
