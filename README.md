@@ -35,3 +35,8 @@ ncc build index.js
 ```
 
 to generate the dist/index.js file
+
+## Links
+
+- [Great guide for creating JavaScript Actions](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
+- [Vercel NCC on Github](https://github.com/vercel/ncc)

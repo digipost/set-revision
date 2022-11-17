@@ -9686,8 +9686,8 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(3234);
 const github = __nccwpck_require__(1221);
-const DEFAULT_BRACHES = ['master', 'main'];
 
+const DEFAULT_BRANCHES = ['master', 'main'];
 const REF_REGEX = /refs\/(.+)\/(.+)/; // e.g. 'refs/heads/main' or 'refs/tags/123'
 
 try {
@@ -9699,12 +9699,14 @@ try {
   console.log(`Branch is ${branch}, refType is ${refType}`);
 
   let revision = branch;
-  if (DEFAULT_BRACHES.includes(branch)) {
+  if (DEFAULT_BRANCHES.includes(branch)) {
     console.log('Default branch detected, renaming to latest')
     revision = 'latest';
   } else if ('tags' !== refType) {
     console.log('Non-default branch detected, adding -SNAPSHOT suffix')
     revision = revision + '-SNAPSHOT';
+  } else {
+    console.log('No special conditions met, leaving revision as is')
   }
 
   core.exportVariable('REVISION', revision)
