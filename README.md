@@ -9,9 +9,7 @@ our specification at Digipost. The specification, in short, is:
 
 ## Inputs
 
-### `github_ref`
-
-**Required** The `GITHUB_REF#refs/*/` action environment value
+None
 
 ## Outputs
 
@@ -26,3 +24,13 @@ uses: digipost/set-revision@v1.0
 with:
   github_Ref: ${GITHUB_REF#refs/*/}
 ```
+
+## Building this project
+
+Make desired changes in `index.js` (and/or other files). Then run
+
+```
+ncc build index.js
+```
+
+to generate the dist/index.js file

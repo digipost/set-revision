@@ -9687,17 +9687,24 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(3234);
 const github = __nccwpck_require__(1221);
 
+const REF_REGEX = /refs\/(.+)\/(.+)/;
+const REF_TAGS = "tags"
+
+function findGitBranchAndRefType(ref) {
+  return ref.match(REF_REGEX);
+}
+
 try {
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
 
-  console.log('Finding desirable REVISION value')
-  const githubRef = core.getInput('github_ref');
-  console.log(`Provided reference was ${githubRef}!`);
+  const ref = github.context.ref;
+  console.log(`Reference is ${ref}`);
 
-  let revision = githubRef;
-  if (revision.startsWith('refs/tags') === false) {
-    revision = revision + '-SNAPSHOT'
+  const [branch, refType] = findGitBranchAndRefType(ref);
+  console.log(`Branch is ${branch}, refType is ${refType}`);
+
+  let revision = branch;
+  if (REF_TAGS === refType) {
+    revision = revision + '-SNAPSHOT';
   }
 
   core.setOutput("revision", revision);

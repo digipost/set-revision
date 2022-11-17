@@ -1,8 +1,5 @@
 name: 'Set Revision'
 description: 'Exports a REVISION environment variable based on current git branch'
-inputs:
-  github_ref:
-    description: 'The GITHUB_REF#refs/*/ value of the workflow'
 outputs:
   revision:
     description: 'The value of the revision variable'
