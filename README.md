@@ -1,8 +1,10 @@
 # Set Revision javascript action
 
-This action takes in a github_ref value, and returns
-the desired Maven REVISION property according to
-our specification at Digipost. The specification, in short, is:
+This action uses the github reference of the caller context,
+and returns the desired Maven Revision property according to
+our specification. This property is also
+exported in the Github Environment as `REVISION`.
+Our specification, in short, is as follows:
 - Tags remain unchained
 - Default branches are renamed to `latest`
 - Non-default branches are appended with a `-SNAPSHOT` suffix
@@ -15,14 +17,13 @@ None
 
 ### `revision`
 
-The appropriate `REVISION` variable
+The appropriate `revision` value.
+This value is also exported in the Github Environment as `REVISION`.
 
 ## Example usage
 
 ```yaml
-uses: digipost/set-revision@v1.0
-with:
-  github_Ref: ${GITHUB_REF#refs/*/}
+uses: digipost/set-revision@v0.7
 ```
 
 ## Building this project
