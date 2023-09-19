@@ -5,9 +5,8 @@ and returns the desired Maven Revision property according to
 our specification. This property is also
 exported in the Github Environment as `REVISION`.
 Our specification, in short, is as follows:
-- Tags remain unchained
-- Default branches are renamed to `latest`
-- Non-default branches are appended with a `-SNAPSHOT` suffix
+- Tags remain unchanged
+- Non-tags are appended with a `-SNAPSHOT` suffix
 
 ## Inputs
 
@@ -23,7 +22,7 @@ This value is also exported in the Github Environment as `REVISION`.
 ## Example usage
 
 ```yaml
-uses: digipost/set-revision@v1.0
+uses: digipost/set-revision@v2.0
 ```
 
 ## Building this project
