@@ -22,7 +22,7 @@ This value is also exported in the Github Environment as `REVISION`.
 ## Example usage
 
 ```yaml
-uses: digipost/set-revision@v2.0
+uses: digipost/set-revision@v3.0
 ```
 
 ## Building this project

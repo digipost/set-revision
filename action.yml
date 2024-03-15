@@ -4,5 +4,5 @@ outputs:
   revision:
     description: 'The value of the revision variable'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
